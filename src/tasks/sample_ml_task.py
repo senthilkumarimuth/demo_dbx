@@ -7,7 +7,10 @@ from sklearn.metrics import r2_score
 import pandas as pd
 import mlflow.sklearn
 import mlflow
+import sys,os
 
+os.environ['PYSPARK_PYTHON'] = sys.executable
+os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 class SampleMLTask(Task):
     TARGET_COLUMN: str = "MedHouseVal"
 

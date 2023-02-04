@@ -2,7 +2,10 @@ from src.common import Task
 from sklearn.datasets import fetch_california_housing
 import pandas as pd
 
+import sys,os
 
+os.environ['PYSPARK_PYTHON'] = sys.executable
+os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 class SampleETLTask(Task):
     def _write_data(self):
         db = self.conf["output"].get("database", "default")
