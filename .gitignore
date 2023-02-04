@@ -11,6 +11,7 @@ dist
 #dataset to be not verson controlled
 data/
 **/metastore_db/**
+**/derby.log
 
 #virtual env
 .venv_dbx
