@@ -5,7 +5,9 @@ import yaml
 import pathlib
 from pyspark.sql import SparkSession
 import sys
-
+from os.path import abspath
+from pathlib import Path, PurePath
+import os
 
 def get_dbutils(
     spark: SparkSession,
@@ -46,7 +48,21 @@ class Task(ABC):
     @staticmethod
     def _prepare_spark(spark) -> SparkSession:
         if not spark:
-            return SparkSession.builder.getOrCreate()
+            root_path = PurePath(Path(__file__).parents[2]).as_posix()
+            location = abspath(os.path.join(root_path, "data","spark-warehouse"))
+            print(location)
+            local_spark = SparkSession.builder \
+                    .master("local[*]") \
+                    .appName('test') \
+                    .config("spark.sql.warehouse.dir", location)\
+                    .config("spark.jars.packages", "io.delta:delta-core_2.12:1.2.1") \
+                    .config("spark.jars.repositories", "https://maven-central.storage-download.googleapis.com/maven2/") \
+                    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
+                    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
+                    .config('spark.ui.port', '4050') \
+                    .enableHiveSupport() \
+                    .getOrCreate()
+            return local_spark
         else:
             return spark
 

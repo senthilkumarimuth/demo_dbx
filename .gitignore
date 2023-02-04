@@ -8,6 +8,9 @@ __pycache__/
 build
 dist
 
+#dataset to be not verson controlled
+data/
+
 #virtual env
 .venv_dbx
 
