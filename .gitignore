@@ -10,7 +10,7 @@ dist
 
 #dataset to be not verson controlled
 data/
-**metastore_db/**
+**/metastore_db/**
 
 #virtual env
 .venv_dbx
