@@ -50,11 +50,12 @@ class Task(ABC):
         if not spark:
             root_path = PurePath(Path(__file__).parents[2]).as_posix()
             location = abspath(os.path.join(root_path, "data","spark-warehouse"))
-            print(location)
+            print('Spark-warehouse path is: ',location)
             local_spark = SparkSession.builder \
                     .master("local[*]") \
-                    .appName('test') \
+                    .appName('Spark_Dbx_Session') \
                     .config("spark.sql.warehouse.dir", location)\
+                    .config("spark.driver.extraJavaOptions", f"-Dderby.system.home='{location}'")\
                     .config("spark.jars.packages", "io.delta:delta-core_2.12:1.2.1") \
                     .config("spark.jars.repositories", "https://maven-central.storage-download.googleapis.com/maven2/") \
                     .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
