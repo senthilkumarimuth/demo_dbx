@@ -6,7 +6,7 @@
 This stops us from using folder structure like cookiecutter. In this case, dbx setup will help
 you run the code in local as well as in databricks
 
-# Limitation of dbx way[ or local mode] of working:
+# Limitation of dbx way[in local way] of working:
 1. The sample data used in local may not satisfy the conditions in code, 
 but it will satisfy in databricks, then the effort to collect sample in
 local is time consuming, tidious.
