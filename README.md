@@ -4,7 +4,9 @@
 # Benefits:
 
 1. .py file can't be run directy in databricks[before 2023] so all your codes to be in notebooks. 
-This stops us from using folder structure like cookiecutter. In this case, dbx setup will help
+This stops us from using folder structure like cookiecutter, doesn't allow us
+do pytest, pylint etc and also doesn't allow to enjoy the IDE features. In this case, 
+this custom modified repo of  dbx rep of databricks labs will help
 you run the code in local as well as in databricks
 2. dbx provides utility for spark, mlflow, dbutils so that a spark project can be setup in local
 effortlessly
