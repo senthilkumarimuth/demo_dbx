@@ -1,5 +1,20 @@
-# Todo:
-   1. To be replaced by custom dbx installation document
+# What is dbx?
+Databricks CLI eXtensions - aka dbx is a CLI tool for IDE based development and advanced Databricks workflows management.
+
+# Pros
+dbx simplifies Databricks workflows development, deployment and launch across multiple environments. i.e
+
+Develop a new Python project on Databricks solely in IDE without using Notebooks
+
+Develop a new Python project on Databricks with Databricks Notebooks and partially in the IDE[mixed mode]
+
+It also helps to package your project and deliver it to your Databricks environment in a versioned fashion. Designed in a CLI-first manner, it is built to be actively used both inside CI/CD pipelines and as a part of local tooling for rapid prototyping[1]
+
+Unlike databricks connect, dbx doesn’t insist python version to be same in local and databricks[This was one of cons of databricks connect]
+
+# Cons
+
+dbx currently doesn't provide interactive debugging capabilities. If you want to use interactive debugging, you can use Databricks Connect, and then use dbx for deployment operations.
 
 # Benefits:
 
